@@ -14,12 +14,14 @@
 
   örnek input:  ""
   örnek output: ""
-*/
-
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+*/const array=["C:/Users/johnsmith/Music/Beethoven_5.mp3"];
+function dosyaAdiniBul(array1) {
+   const newArray=array1.toString()
+   //console.log(newArray);
+   let path=newArray.split("/");
+   return path[path.length-1];
 }
-
+console.log(dosyaAdiniBul(array));
 /*
   GÖREV 2
   - Input:  Bir sayı arrayini parametre olarak alacak bir fonksiyon oluştur.
@@ -38,10 +40,32 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
-}
+const sayi=[16]
+const sayi2=[]
+function ortalamaBul(numberArray) {
+  // let toplam=0;
+  //   if(numberArray.length>0){
+  //   for(let i=0;i<numberArray.length;i++){
+  //     toplam+=numberArray[i];
+  //   }}
+  //   else{
+  //     return null;
+  //   }
+  //   return (toplam/(numberArray.length));
 
+  if(numberArray.length>0){
+  const toplam =numberArray.reduce((toplam,index)=>{
+    return toplam+=index;
+    
+  },0)
+ return toplam/numberArray.length;
+}
+else{
+  return null;
+}
+}
+console.log("================");
+console.log(ortalamaBul(sayi));
 /*
   GÖREV 3
   - Input:  Bir sayı arrayini ve ortalama bulmaya yarayacak bir fonksiyonu parametre olarak alacak bir fonksiyon oluştur.
@@ -62,9 +86,33 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(numberArray,ortalamaFank) {
+   let ortDeger=ortalamaFank(numberArray);
+  // for(let i=0;i<numberArray.length;i++){
+  //    if(numberArray[i]>=ortDeger){
+  //     result.push(numberArray[i]); 
+  //    }
+  // }
+
+  // if (result.length>0) {
+  //   return result
+  // }
+  // else{
+  //   return null
+  // }
+  
+  let ortalamaDegerdenbüyükElamlar=numberArray.filter((index)=>{
+    console.log("+======================+");
+      return index>=ortDeger;
+  })
+
+return numberArray.length>0?ortalamaDegerdenbüyükElamlar:null;
 }
+console.log(ortalamadanBuyukleriBul(sayi,ortalamaBul));
+
+
+
+
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
